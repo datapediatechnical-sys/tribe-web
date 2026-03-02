@@ -5,14 +5,51 @@
     padding: 120px 4rem 4rem;
 }
 
+.home-page {
+    padding: 0;
+}
+
+.programs-page {
+    background-color: #f7f3ec;
+    padding: 0;
+}
+
 /* Hero Section - Home */
 .hero-section {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    min-height: 70vh;
+    width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.hero-bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.45);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 1.5rem;
 }
 
@@ -80,10 +117,20 @@
 
 /* Philosophy Section */
 .philosophy-section {
-    text-align: center;
     padding: 5rem 2rem;
-    max-width: 700px;
+    max-width: 1100px;
     margin: 0 auto;
+}
+
+.philosophy-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.philosophy-left {
+    text-align: left;
 }
 
 .section-tag {
@@ -99,21 +146,396 @@
 .philosophy-section h2 {
     font-size: 2.2rem;
     color: #fff;
-    margin: 0.5rem 0;
-}
-
-.philosophy-quote {
-    font-size: 1.6rem;
-    color: rgba(255, 255, 255, 0.85);
-    font-style: italic;
-    margin: 0.5rem 0 1.5rem;
-    line-height: 1.4;
+    margin: 0.5rem 0 1rem;
 }
 
 .philosophy-desc {
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(255, 255, 255, 0.7);
     line-height: 1.8;
     font-size: 0.95rem;
+    margin-bottom: 2rem;
+}
+
+/* Philosophy Cards */
+.philosophy-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.philosophy-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(207, 163, 84, 0.15);
+    border-radius: 14px;
+    padding: 1.5rem;
+    transition: all 0.4s ease;
+}
+
+.philosophy-card:hover {
+    background: rgba(207, 163, 84, 0.08);
+    border-color: rgba(207, 163, 84, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.philosophy-card-icon {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 0.6rem;
+}
+
+.philosophy-card h3 {
+    font-size: 1rem;
+    color: #fff;
+    margin: 0 0 0.4rem;
+    font-weight: 600;
+}
+
+.philosophy-card p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.82rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Mandala Diagram */
+.philosophy-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mandala-diagram {
+    position: relative;
+    width: 320px;
+    height: 320px;
+}
+
+.mandala-ring {
+    position: absolute;
+    inset: 30px;
+    border-radius: 50%;
+    border: 2px solid rgba(207, 163, 84, 0.2);
+    background: radial-gradient(circle, rgba(207, 163, 84, 0.06) 0%, transparent 70%);
+}
+
+.mandala-ring::before {
+    content: '';
+    position: absolute;
+    inset: -15px;
+    border-radius: 50%;
+    border: 1px solid rgba(207, 163, 84, 0.08);
+}
+
+.mandala-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e67e22, #f39c12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    box-shadow: 0 0 30px rgba(230, 126, 34, 0.4), 0 0 60px rgba(230, 126, 34, 0.15);
+    animation: centerPulse 3s ease-in-out infinite;
+}
+
+@keyframes centerPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 30px rgba(230, 126, 34, 0.4), 0 0 60px rgba(230, 126, 34, 0.15);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(230, 126, 34, 0.5), 0 0 80px rgba(230, 126, 34, 0.2);
+    }
+}
+
+.mandala-center span {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+/* Mandala Nodes */
+.mandala-node {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    z-index: 2;
+}
+
+.node-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(30, 30, 30, 0.9);
+    border: 1.5px solid rgba(207, 163, 84, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.mandala-node:hover .node-circle {
+    border-color: #cfa354;
+    background: rgba(207, 163, 84, 0.15);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(207, 163, 84, 0.25);
+}
+
+.mandala-node span {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.mandala-top {
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mandala-right-node {
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.mandala-bottom {
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mandala-left-node {
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* ===== Curated Offerings Section ===== */
+.offerings-section {
+    padding: 4rem 2rem 5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.offerings-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+}
+
+.offerings-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 0.4rem;
+}
+
+.offerings-subtitle {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+}
+
+.offerings-view-all {
+    font-size: 0.85rem;
+    color: #cfa354;
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.offerings-view-all:hover {
+    color: #e8c47a;
+}
+
+.offerings-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.offering-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(207, 163, 84, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.offering-card:hover {
+    border-color: rgba(207, 163, 84, 0.3);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+}
+
+.offering-img-wrap {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.offering-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.offering-card:hover .offering-img-wrap img {
+    transform: scale(1.05);
+}
+
+.offering-body {
+    padding: 1.5rem;
+}
+
+.offering-tag {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #cfa354;
+    display: block;
+    margin-bottom: 0.6rem;
+}
+
+.offering-body h3 {
+    font-size: 1.15rem;
+    color: #fff;
+    margin: 0 0 0.6rem;
+    font-weight: 600;
+}
+
+.offering-body p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.6;
+    margin: 0 0 1.2rem;
+}
+
+.offering-btn {
+    padding: 0.5rem 1.4rem;
+    font-size: 0.8rem;
+}
+
+/* ===== At A Glance Section ===== */
+.glance-section {
+    padding: 4rem 2rem 5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(207, 163, 84, 0.08);
+}
+
+.glance-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.glance-left {
+    text-align: left;
+}
+
+.glance-desc {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.92rem;
+    line-height: 1.7;
+    margin: 0.8rem 0 1.5rem;
+}
+
+.glance-cta {
+    font-size: 0.85rem;
+    color: #cfa354;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.glance-cta:hover {
+    color: #e8c47a;
+}
+
+.glance-right {
+    display: flex;
+    gap: 1.2rem;
+    align-items: stretch;
+}
+
+.glance-card {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(207, 163, 84, 0.1);
+    border-radius: 14px;
+    padding: 1.5rem 1.2rem;
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+.glance-card:hover {
+    background: rgba(207, 163, 84, 0.07);
+    border-color: rgba(207, 163, 84, 0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.glance-card-icon {
+    font-size: 1.4rem;
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.glance-card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 0.3rem;
+}
+
+.glance-card p {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.glance-accent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.accent-box {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #e67e22, #f39c12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 20px rgba(230, 126, 34, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.accent-box:hover {
+    transform: scale(1.1);
 }
 
 /* Page Headers */
@@ -179,6 +601,175 @@
     margin: 0;
 }
 
+/* ===== Programs Hero Section ===== */
+.programs-hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    padding: 8rem 2rem 4rem;
+    /* Top padding to account for fixed navbar */
+    background-color: #1a1612;
+}
+
+.programs-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.programs-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(20, 16, 12, 0.75) 0%, rgba(30, 24, 18, 0.95) 100%);
+    z-index: 1;
+}
+
+.programs-hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ===== Spiritual Living Products Grid ===== */
+.programs-product-grid-section {
+    background-color: #1a1612;
+    padding: 2rem 2rem 6rem;
+    color: #fff;
+}
+
+/* Category Filters */
+.category-filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Outfit', sans-serif;
+}
+
+.filter-btn:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+.filter-btn.active {
+    background: #e67e22;
+    /* Signature orange */
+    color: #fff;
+    border-color: #e67e22;
+}
+
+/* Grid Header */
+.product-grid-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    max-width: 1100px;
+    margin: 0 auto 2rem;
+}
+
+.header-left h2 {
+    font-size: 1.8rem;
+    margin: 0 0 0.3rem;
+    font-weight: 600;
+}
+
+.header-left p {
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.view-all-link {
+    color: #e67e22;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: opacity 0.3s ease;
+}
+
+.view-all-link:hover {
+    opacity: 0.8;
+}
+
+/* Product Grid */
+.shop-product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.shop-product-card {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.shop-img-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.shop-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.shop-product-card:hover .shop-img-wrapper img {
+    transform: scale(1.05);
+}
+
+.shop-product-info h3 {
+    font-size: 1.05rem;
+    color: #fff;
+    margin: 0 0 0.3rem;
+    font-weight: 600;
+}
+
+.shop-product-info .price {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.programs-header {
+    background-color: #f7f3ec;
+    padding: 5rem 2rem 3rem;
+}
+
 /* Product Hero Section */
 .products-page {
     padding: 0;
@@ -231,8 +822,682 @@
     margin-bottom: 1.5rem;
 }
 
-.products-page .cards-grid {
-    padding: 3rem 4rem 4rem;
+.product-hero-btns {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* ===== Spiritual Well-being Section ===== */
+.wellbeing-section {
+    padding: 5rem 4rem;
+}
+
+.wellbeing-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+}
+
+.wellbeing-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0.3rem 0 0.4rem;
+}
+
+.wellbeing-subtitle {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+}
+
+.wellbeing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.wellbeing-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(207, 163, 84, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.wellbeing-card:hover {
+    border-color: rgba(207, 163, 84, 0.3);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+}
+
+.wellbeing-img {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.wellbeing-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.wellbeing-card:hover .wellbeing-img img {
+    transform: scale(1.05);
+}
+
+.wellbeing-img-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.popular-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #e67e22;
+    color: #fff;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.wellbeing-body {
+    padding: 1.5rem;
+}
+
+.wellbeing-body h3 {
+    font-size: 1.1rem;
+    color: #fff;
+    margin: 0 0 0.6rem;
+    font-weight: 600;
+}
+
+.wellbeing-body p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.6;
+    margin: 0 0 1.2rem;
+}
+
+.wellbeing-btn {
+    padding: 0.5rem 1.4rem;
+    font-size: 0.8rem;
+}
+
+/* ===== Spiritual Living Courses Section ===== */
+.courses-section {
+    padding: 6rem 4rem;
+    background-color: #1a1612;
+}
+
+.courses-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.courses-header h2 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin: 0 0 1rem;
+    font-weight: 700;
+}
+
+.courses-header p {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.courses-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Main Card */
+.courses-main-card {
+    background-color: #221d18;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.courses-main-img {
+    width: 100%;
+    height: 300px;
+    flex-shrink: 0;
+}
+
+.courses-main-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.courses-main-content {
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.course-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #e67e22;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.courses-main-content h3 {
+    font-size: 1.8rem;
+    color: #fff;
+    margin: 0 0 1.2rem;
+    line-height: 1.2;
+}
+
+.courses-main-content p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.6;
+    margin: 0 0 2rem;
+}
+
+.course-link {
+    color: #e67e22;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.course-link:hover {
+    color: #f39c12;
+}
+
+.course-link .arrow {
+    font-size: 1.2rem;
+}
+
+/* List Cards */
+.courses-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.course-list-item {
+    background-color: #221d18;
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.course-list-item:hover {
+    background-color: #2a2520;
+    transform: translateY(-3px);
+}
+
+.course-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background-color: rgba(230, 126, 34, 0.1);
+    color: #e67e22;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.course-list-text h4 {
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 0 0 0.5rem;
+    font-weight: 600;
+}
+
+.course-list-text p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ===== Online Global Programs Section ===== */
+.global-programs-section {
+    padding: 6rem 4rem;
+    background-color: #2c505e;
+    /* Deep blue-teal background like the reference */
+    width: 100%;
+}
+
+.global-programs-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 4rem;
+}
+
+.global-programs-content {
+    flex: 1;
+    max-width: 500px;
+}
+
+.global-programs-content h2 {
+    font-size: 2.8rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.global-programs-desc {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    margin-bottom: 3rem;
+}
+
+.global-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 2rem;
+    margin-bottom: 3rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.feature-icon {
+    font-size: 1.2rem;
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #2c505e;
+    border: none;
+    font-weight: 600;
+    padding: 0.9rem 2rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-white:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+/* Ceramic Bowl 3D CSS Effect */
+.global-programs-image-area {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ceramic-bowl-container {
+    background-color: #f9f9f9;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ceramic-bowl {
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #ffffff 0%, #f0f0f0 40%, #d8d8d8 80%, #b0b0b0 100%);
+    box-shadow:
+        inset -5px -5px 15px rgba(0, 0, 0, 0.1),
+        /* inner bottom-right shadow */
+        inset 5px 5px 15px rgba(255, 255, 255, 0.8),
+        /* inner top-left highlight */
+        0 20px 40px rgba(0, 0, 0, 0.2),
+        /* outer drop shadow */
+        0 0 0 4px #cfba9b;
+    /* thin gold/tan rim */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Inner depth of the bowl */
+.bowl-inner {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 70% 70%, #fefefe 0%, #ececec 40%, #e0e0e0 80%, #cccccc 100%);
+    box-shadow:
+        inset 10px 10px 20px rgba(0, 0, 0, 0.05),
+        /* inward depth shadow */
+        inset -10px -10px 20px rgba(255, 255, 255, 0.9);
+    /* inward highlight */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bowl-text {
+    color: #cfba9b;
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    text-align: center;
+    font-weight: 300;
+    opacity: 0.8;
+}
+
+/* ===== Upcoming Events Section ===== */
+.upcoming-events-section {
+    padding: 6rem 4rem;
+    background-color: #12100e;
+    /* Very dark espresso/grey */
+    width: 100%;
+}
+
+.events-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.events-header h2 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin: 0 0 1rem;
+    font-weight: 700;
+}
+
+.events-header p {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.event-card {
+    background: #1a1612;
+    border: 1px solid rgba(207, 163, 84, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(207, 163, 84, 0.3);
+}
+
+.event-img {
+    width: 100%;
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+}
+
+.event-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.event-card:hover .event-img img {
+    transform: scale(1.05);
+}
+
+.event-date {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    min-width: 55px;
+}
+
+.event-date .month {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #e67e22;
+}
+
+.event-date .day {
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.event-body {
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.event-body h3 {
+    font-size: 1.25rem;
+    color: #fff;
+    margin: 0 0 0.8rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.event-body p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.6;
+    margin: 0 0 1.5rem;
+    flex-grow: 1;
+}
+
+.event-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.event-meta span {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.event-btn {
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+}
+
+/* ===== Full-Width Product Card Section ===== */
+.fw-product-section {
+    width: 100%;
+    background-color: #1a1612;
+    padding: 0 0 2rem;
+}
+
+.fw-category-block {
+    max-width: 100%;
+    padding: 2rem 4rem 3rem;
+}
+
+.fw-category-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.fw-category-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 0.3rem;
+    font-style: italic;
+}
+
+.fw-category-subtitle {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0;
+    font-style: italic;
+}
+
+.fw-view-all {
+    color: #e67e22;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.fw-view-all:hover {
+    color: #f39c12;
+}
+
+.fw-cards-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.fw-card {
+    display: flex;
+    flex-direction: row;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.fw-card:hover {
+    border-color: rgba(230, 126, 34, 0.35);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+    transform: translateY(-4px);
+}
+
+.fw-card-img {
+    width: 200px;
+    min-height: 180px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.fw-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.fw-card:hover .fw-card-img img {
+    transform: scale(1.06);
+}
+
+.fw-card-info {
+    padding: 1.5rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.fw-card-info h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 0.5rem;
+}
+
+.fw-card-info p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.6;
+    margin: 0 0 0.8rem;
+}
+
+.fw-card-price {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #e67e22;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.fw-add-btn {
+    align-self: flex-start;
+    background: transparent;
+    color: #e67e22;
+    border: 1.5px solid #e67e22;
+    padding: 0.45rem 1.4rem;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-family: 'Outfit', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.fw-add-btn:hover {
+    background: #e67e22;
+    color: #fff;
 }
 
 /* Responsive */
@@ -264,5 +1529,139 @@
 
     .cards-grid {
         grid-template-columns: 1fr;
+    }
+
+    .philosophy-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .philosophy-left {
+        text-align: center;
+    }
+
+    .philosophy-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .mandala-diagram {
+        width: 260px;
+        height: 260px;
+        margin: 0 auto;
+    }
+
+    .offerings-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .offerings-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .glance-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .glance-left {
+        text-align: center;
+    }
+
+    .glance-right {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .wellbeing-section {
+        padding: 3rem 1.5rem;
+    }
+
+    .wellbeing-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .wellbeing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .courses-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .courses-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .courses-main-img {
+        height: 250px;
+    }
+
+    .course-list-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .global-programs-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .global-programs-layout {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .global-programs-content {
+        text-align: center;
+    }
+
+    .global-features {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .ceramic-bowl {
+        width: 280px;
+        height: 280px;
+    }
+
+    .bowl-inner {
+        width: 230px;
+        height: 230px;
+    }
+
+    .upcoming-events-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fw-category-block {
+        padding: 2rem 1.5rem;
+    }
+
+    .fw-cards-row {
+        grid-template-columns: 1fr;
+    }
+
+    .fw-card {
+        flex-direction: column;
+    }
+
+    .fw-card-img {
+        width: 100%;
+        min-height: 200px;
+    }
+
+    .fw-category-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
     }
 }

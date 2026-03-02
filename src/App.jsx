@@ -1,5 +1,6 @@
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 import Home from './pages/Home'
 import WeddingEvents from './pages/WeddingEvents'
 import Products from './pages/Products'
@@ -16,8 +17,8 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/programs" element={<Programs />} />
       </Routes>
+      <Footer />
     </HashRouter>
   )
 }
-
 export default App

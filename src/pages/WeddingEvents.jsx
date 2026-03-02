@@ -1,4 +1,10 @@
 import './WeddingEvents.css'
+import weddingHeroImg from '../assets/images/wedding-hero.png'
+import sacredFireImg from '../assets/images/sacred-fire.png'
+import meditationRetreatImg from '../assets/images/meditation-retreat.png'
+import weddingMandapImg from '../assets/images/wedding-mandap.png'
+import oceanCeremonyImg from '../assets/images/ocean-ceremony.png'
+import weddingDecorImg from '../assets/images/wedding-decor.png'
 
 function WeddingEvents() {
     return (
@@ -7,7 +13,7 @@ function WeddingEvents() {
             {/* ===== HERO SECTION ===== */}
             <section className="wedding-hero">
                 <div className="wedding-hero-overlay"></div>
-                <img src="/images/wedding-hero.png" alt="Sacred Wedding" className="wedding-hero-img" />
+                <img src={weddingHeroImg} alt="Sacred Wedding" className="wedding-hero-img" />
                 <div className="wedding-hero-content">
                     <span className="wedding-hero-tag">SPIRITUAL UNIONS</span>
                     <h1 className="wedding-hero-title">
@@ -67,10 +73,10 @@ function WeddingEvents() {
                 <div className="events-grid">
                     <div className="events-images">
                         <div className="events-img-large">
-                            <img src="/images/sacred-fire.png" alt="Sacred Fire Ceremony" />
+                            <img src={sacredFireImg} alt="Sacred Fire Ceremony" />
                         </div>
                         <div className="events-img-small">
-                            <img src="/images/meditation-retreat.png" alt="Meditation Retreat" />
+                            <img src={meditationRetreatImg} alt="Meditation Retreat" />
                         </div>
                     </div>
 
@@ -113,22 +119,22 @@ function WeddingEvents() {
 
                 <div className="gallery-grid">
                     <div className="gallery-item">
-                        <img src="/images/wedding-mandap.png" alt="Wedding Mandap" />
+                        <img src={weddingMandapImg} alt="Wedding Mandap" />
                     </div>
                     <div className="gallery-item">
-                        <img src="/images/ocean-ceremony.png" alt="Ocean Ceremony" />
+                        <img src={oceanCeremonyImg} alt="Ocean Ceremony" />
                     </div>
                     <div className="gallery-item">
-                        <img src="/images/wedding-decor.png" alt="Wedding Decor" />
+                        <img src={weddingDecorImg} alt="Wedding Decor" />
                     </div>
                     <div className="gallery-item">
-                        <img src="/images/sacred-fire.png" alt="Sacred Fire" />
+                        <img src={sacredFireImg} alt="Sacred Fire" />
                     </div>
                     <div className="gallery-item">
-                        <img src="/images/meditation-retreat.png" alt="Retreat" />
+                        <img src={meditationRetreatImg} alt="Retreat" />
                     </div>
                     <div className="gallery-item">
-                        <img src="/images/wedding-hero.png" alt="Wedding" />
+                        <img src={weddingHeroImg} alt="Wedding" />
                     </div>
                 </div>
             </section>
