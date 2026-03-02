@@ -1664,4 +1664,144 @@
         align-items: flex-start;
         gap: 0.8rem;
     }
+
+    /* =========================================
+   RESPONSIVE STYLES
+========================================= */
+
+    @media (max-width: 1200px) {
+
+        .philosophy-section,
+        .offerings-section,
+        .glance-section {
+            padding-left: 3rem;
+            padding-right: 3rem;
+        }
+    }
+
+    @media (max-width: 1024px) {
+
+        /* Philosophy Grid */
+        .philosophy-layout {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .philosophy-right {
+            order: -1;
+        }
+
+        /* Offerings Grid */
+        .offerings-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        /* Glance Grid */
+        .glance-layout {
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+
+        .glance-card {
+            padding: 1.2rem;
+        }
+
+        /* Products Grid */
+        .shop-product-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+
+        /* General Pages Padding */
+        .page,
+        .programs-header,
+        .offerings-section,
+        .glance-section,
+        .page-header {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        /* Hero Sections */
+        .hero-title {
+            font-size: 2.8rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            padding: 0 1rem;
+        }
+
+        .product-hero-title {
+            font-size: 3rem;
+        }
+
+        .programs-hero-content h1 {
+            font-size: 3rem !important;
+            /* override inline style if any */
+        }
+
+        .programs-hero-content p {
+            font-size: 1rem !important;
+            padding: 0 1rem;
+        }
+
+        /* Cards */
+        .philosophy-cards {
+            grid-template-columns: 1fr;
+        }
+
+        .offerings-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .cards-grid {
+            grid-template-columns: 1fr;
+        }
+
+        /* Glance Cards Row */
+        .glance-right {
+            flex-direction: column;
+        }
+
+        /* Shop / Programs Grid */
+        .shop-product-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero-title {
+            font-size: 2.2rem;
+        }
+
+        .hero-buttons {
+            flex-direction: column;
+            width: 100%;
+            padding: 0 2rem;
+        }
+
+        .btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        .product-hero-title {
+            font-size: 2.2rem;
+        }
+
+        .programs-hero-content h1 {
+            font-size: 2.2rem !important;
+        }
+
+        .shop-product-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .category-filters {
+            justify-content: center;
+        }
+    }
 }

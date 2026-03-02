@@ -596,3 +596,31 @@
         font-size: 2rem;
     }
 }
+
+@media (max-width: 480px) {
+    .wedding-hero-title {
+        font-size: 2.1rem;
+    }
+
+    .wedding-hero-content {
+        padding: 0 1rem 2rem;
+    }
+
+    .events-images {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .events-img-small {
+        display: none;
+        /* Hide small image on very small screens to save space */
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .wedding-cta-inner h2 {
+        font-size: 1.5rem;
+    }
+}

@@ -175,13 +175,27 @@
     }
 }
 
-@media (max-width: 576px) {
-    .footer-main {
-        padding: 4rem 1.5rem 1.5rem;
-    }
-
+@media (max-width: 768px) {
     .footer-content {
         grid-template-columns: 1fr;
         gap: 2.5rem;
+    }
+
+    .footer-subscribe {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-main {
+        padding: 3rem 1.5rem 1.5rem;
+    }
+
+    .subscribe-form {
+        flex-direction: column;
+    }
+
+    .btn-subscribe {
+        padding: 0.8rem;
     }
 }
