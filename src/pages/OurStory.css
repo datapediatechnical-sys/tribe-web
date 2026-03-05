@@ -1,0 +1,126 @@
+.our-story-page {
+    background-color: #0a0a0a;
+    color: #fff;
+    min-height: 100vh;
+}
+
+/* Hero Section */
+.story-hero {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 2rem;
+    background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.9)), url('../assets/images/hero-dark-mountains.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.story-hero h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.story-hero p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 800px;
+}
+
+/* Sections */
+.story-content-section {
+    padding: 8rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.story-text h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 2rem;
+    color: #cfa354;
+}
+
+.story-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1.5rem;
+}
+
+.story-image {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(207, 163, 84, 0.2);
+}
+
+.story-image img {
+    width: 100%;
+    display: block;
+}
+
+/* Legacy Section */
+.legacy-section {
+    background-color: #0d0d0d;
+    padding: 10rem 4rem;
+    text-align: center;
+}
+
+.legacy-inner {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.legacy-inner blockquote {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.5;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.legacy-inner blockquote::before {
+    content: '"';
+    font-size: 5rem;
+    color: #cfa354;
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.3;
+}
+
+/* Mobile */
+@media (max-width: 992px) {
+    .story-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .story-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .story-content-section {
+        padding: 5rem 2rem;
+    }
+}

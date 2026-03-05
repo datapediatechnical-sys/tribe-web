@@ -5,6 +5,8 @@ import Home from './pages/Home'
 import WeddingEvents from './pages/WeddingEvents'
 import Products from './pages/Products'
 import Programs from './pages/Programs'
+import Contact from './pages/Contact'
+import OurStory from './pages/OurStory'
 import './App.css'
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
         <Route path="/wedding-events" element={<WeddingEvents />} />
         <Route path="/products" element={<Products />} />
         <Route path="/programs" element={<Programs />} />
+        <Route path="/our-story" element={<OurStory />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </HashRouter>

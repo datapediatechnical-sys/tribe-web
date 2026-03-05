@@ -3,6 +3,9 @@ import heroDarkMountains from '../assets/images/hero-dark-mountains.png'
 import retreatImg from '../assets/images/retreat-card.png'
 import sacredStudyImg from '../assets/images/sacred-study-card.png'
 import communityImg from '../assets/images/community-card.png'
+import { Link } from 'react-router-dom'
+import ExplorePath from '../components/ExplorePath'
+import { Heart, Flame, Star, Sparkles, Sprout, Footprints } from 'lucide-react'
 
 function Home() {
     return (
@@ -18,8 +21,8 @@ function Home() {
                         Bridging Ancient Wisdom & Modern Consciousness — transforming lives through purpose and awakening.
                     </p>
                     <div className="hero-buttons">
-                        <button className="btn btn-primary">Explore the Path</button>
-                        <button className="btn btn-outline">Our Story</button>
+                        <ExplorePath triggerText="Explore the Path" />
+                        <Link to="/programs"><button className="btn btn-outline">View Programs</button></Link>
                     </div>
                 </div>
             </div>
@@ -35,12 +38,12 @@ function Home() {
                         </p>
                         <div className="philosophy-cards">
                             <div className="philosophy-card">
-                                <span className="philosophy-card-icon">🧘</span>
+                                <span className="philosophy-card-icon"><Heart size={24} color="#e67e22" strokeWidth={1.5} /></span>
                                 <h3>Equanimity</h3>
                                 <p>Finding stillness in the dance of opposites.</p>
                             </div>
                             <div className="philosophy-card">
-                                <span className="philosophy-card-icon">🔥</span>
+                                <span className="philosophy-card-icon"><Flame size={24} color="#e67e22" strokeWidth={1.5} /></span>
                                 <h3>Conscious Ritual</h3>
                                 <p>Modern practices rooted in ancient truth.</p>
                             </div>
@@ -53,19 +56,19 @@ function Home() {
                                 <span>UNITY</span>
                             </div>
                             <div className="mandala-node mandala-top">
-                                <div className="node-circle">🌟</div>
+                                <div className="node-circle"><Star size={20} color="#e67e22" strokeWidth={1.5} /></div>
                                 <span>WISDOM</span>
                             </div>
                             <div className="mandala-node mandala-right-node">
-                                <div className="node-circle">✨</div>
+                                <div className="node-circle"><Sparkles size={20} color="#e67e22" strokeWidth={1.5} /></div>
                                 <span>KALA</span>
                             </div>
                             <div className="mandala-node mandala-bottom">
-                                <div className="node-circle">🌱</div>
+                                <div className="node-circle"><Sprout size={20} color="#e67e22" strokeWidth={1.5} /></div>
                                 <span>GROWTH</span>
                             </div>
                             <div className="mandala-node mandala-left-node">
-                                <div className="node-circle">🕯️</div>
+                                <div className="node-circle"><Footprints size={20} color="#e67e22" strokeWidth={1.5} /></div>
                                 <span>RITUAL</span>
                             </div>
                         </div>
@@ -77,19 +80,19 @@ function Home() {
                 <div className="offerings-header">
                     <div>
                         <h2 className="offerings-title">Curated Offerings</h2>
-                        <p className="offerings-subtitle">Deep into a space of transformation with our signature spiritual offerings.</p>
+                        <p className="offerings-subtitle">Dive deep into a space of transformation with our signature spiritual offerings.</p>
                     </div>
                     <a href="#" className="offerings-view-all">View All Offerings →</a>
                 </div>
                 <div className="offerings-grid">
                     <div className="offering-card">
                         <div className="offering-img-wrap">
-                            <img src={retreatImg} alt="Silent Himalaya Retreat" />
+                            <img src="https://images.unsplash.com/photo-1544365558-35aa4afcf11f?auto=format&fit=crop&q=80&w=800" alt="Silent Himalaya Retreat" />
                         </div>
                         <div className="offering-body">
                             <span className="offering-tag">✦ MEDITATION</span>
                             <h3>Silent Himalaya Retreat</h3>
-                            <p>A 21-day immersion into the deep silence of the higher realms, guided by through ancient meditative practices.</p>
+                            <p>A 21-day immersion into the deep silence of the higher realms, guided through ancient meditative practices.</p>
                             <button className="btn btn-outline offering-btn">Learn More</button>
                         </div>
                     </div>
@@ -106,7 +109,7 @@ function Home() {
                     </div>
                     <div className="offering-card">
                         <div className="offering-img-wrap">
-                            <img src={communityImg} alt="The Weaver's Circle" />
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800" alt="The Weaver's Circle" />
                         </div>
                         <div className="offering-body">
                             <span className="offering-tag">✦ SANGHA</span>
@@ -143,9 +146,6 @@ function Home() {
                             <span className="glance-card-icon">✨</span>
                             <h3>8,500+</h3>
                             <p>Transformations</p>
-                        </div>
-                        <div className="glance-accent">
-                            <div className="accent-box">🔱</div>
                         </div>
                     </div>
                 </div>

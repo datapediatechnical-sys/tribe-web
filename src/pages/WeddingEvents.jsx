@@ -5,6 +5,8 @@ import meditationRetreatImg from '../assets/images/meditation-retreat.png'
 import weddingMandapImg from '../assets/images/wedding-mandap.png'
 import oceanCeremonyImg from '../assets/images/ocean-ceremony.png'
 import weddingDecorImg from '../assets/images/wedding-decor.png'
+import retreatCardImg from '../assets/images/retreat-card.png'
+import communityCardImg from '../assets/images/community-card.png'
 
 function WeddingEvents() {
     return (
@@ -57,8 +59,7 @@ function WeddingEvents() {
                     <div className="dest-card">
                         <div className="dest-card-icon">🪔</div>
                         <h3>Traditional Flavors</h3>
-                        <p>We curate a feast infused with Vedic cooking traditions, gatherings, infusing the spiritual aspects of eating
-                            with nourishment.</p>
+                        <p>We curate feasts infused with Vedic cooking traditions, bringing sacred nourishment to every conscious gathering.</p>
                     </div>
                     <div className="dest-card">
                         <div className="dest-card-icon">📿</div>
@@ -71,13 +72,15 @@ function WeddingEvents() {
             {/* ===== CONSCIOUS EVENTS & GATHERINGS ===== */}
             <section className="events-section">
                 <div className="events-grid">
-                    <div className="events-images">
-                        <div className="events-img-large">
-                            <img src={sacredFireImg} alt="Sacred Fire Ceremony" />
-                        </div>
-                        <div className="events-img-small">
-                            <img src={meditationRetreatImg} alt="Meditation Retreat" />
-                        </div>
+                    <div className="events-grid-images">
+                        <img src={weddingHeroImg} alt="Event 1" />
+                        <img src={sacredFireImg} alt="Event 2" />
+                        <img src={meditationRetreatImg} alt="Event 3" />
+                        <img src={weddingMandapImg} alt="Event 4" />
+                        <img src={oceanCeremonyImg} alt="Event 5" />
+                        <img src={weddingDecorImg} alt="Event 6" />
+                        <img src={retreatCardImg} alt="Event 7" />
+                        <img src={communityCardImg} alt="Event 8" />
                     </div>
 
                     <div className="events-content">
@@ -185,34 +188,7 @@ function WeddingEvents() {
                 </div>
             </section>
 
-            {/* ===== FOOTER ===== */}
-            <footer className="wedding-footer">
-                <div className="footer-grid">
-                    <div className="footer-col">
-                        <h4>BSA TRIBE</h4>
-                        <p>Transcending the dualities of life through ancient rituals and modern consciousness.</p>
-                    </div>
-                    <div className="footer-col">
-                        <h4>Navigation</h4>
-                        <ul>
-                            <li>Home</li>
-                            <li>Weddings</li>
-                            <li>Products</li>
-                            <li>Programs</li>
-                        </ul>
-                    </div>
-                    <div className="footer-col">
-                        <h4>Contact</h4>
-                        <ul>
-                            <li>info@bsatribe.com</li>
-                            <li>+91 98765 43210</li>
-                        </ul>
-                    </div>
-                </div>
-                <div className="footer-bottom">
-                    <p>© 2026 BSA TRIBE. All rights reserved.</p>
-                </div>
-            </footer>
+
         </div>
     )
 }

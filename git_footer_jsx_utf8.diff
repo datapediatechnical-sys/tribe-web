@@ -1,0 +1,71 @@
+﻿commit 4f53466fdbdb18f52a0d569bc16d314f5b630b65
+Author: Divya147940 <Divyanshiverma484@gmail.com>
+Date:   Mon Mar 2 12:34:00 2026 +0530
+
+    feat: Introduce new Programs, Products, Home, and WeddingEvents pages, a Footer component, and their respective styling and image assets.
+
+diff --git a/src/components/Footer.jsx b/src/components/Footer.jsx
+new file mode 100644
+index 0000000..058edcf
+--- /dev/null
++++ b/src/components/Footer.jsx
+@@ -0,0 +1,59 @@
++import { Link } from 'react-router-dom';
++import './Footer.css';
++
++function Footer() {
++    return (
++        <footer className="footer-main">
++            <div className="footer-content">
++                <div className="footer-brand">
++                    <div className="footer-logo">
++                        <span className="footer-logo-icon">≡ƒÅ»</span>
++                        <span className="footer-logo-text">BSA Tribe</span>
++                    </div>
++                    <p className="footer-description">
++                        Preserving and sharing the sacred traditions of the East for the conscious leaders of tomorrow.
++                    </p>
++                    <div className="footer-social">
++                        <a href="#" aria-label="Website" className="social-icon">≡ƒîÄ</a>
++                        <a href="#" aria-label="Email" className="social-icon">Γ£ë∩╕Å</a>
++                    </div>
++                </div>
++
++                <div className="footer-links-group">
++                    <h4>Explore</h4>
++                    <ul>
++                        <li><Link to="/programs">All Programs</Link></li>
++                        <li><Link to="#">Scholarships</Link></li>
++                        <li><Link to="#">Retreat Centers</Link></li>
++                        <li><Link to="#">Testimonials</Link></li>
++                    </ul>
++                </div>
++
++                <div className="footer-links-group">
++                    <h4>Support</h4>
++                    <ul>
++                        <li><Link to="#">Contact Us</Link></li>
++                        <li><Link to="#">FAQ</Link></li>
++                        <li><Link to="#">Privacy Policy</Link></li>
++                        <li><Link to="#">Terms of Service</Link></li>
++                    </ul>
++                </div>
++
++                <div className="footer-subscribe">
++                    <h4>Subscribe</h4>
++                    <p>Receive wisdom snippets and program updates weekly.</p>
++                    <form className="subscribe-form" onSubmit={(e) => e.preventDefault()}>
++                        <input type="email" placeholder="Your email" required />
++                        <button type="submit" className="btn-subscribe">Join</button>
++                    </form>
++                </div>
++            </div>
++
++            <div className="footer-bottom">
++                <p>┬⌐ 2023 BSA Tribe. All rights reserved. Elevate Your Consciousness.</p>
++            </div>
++        </footer>
++    );
++}
++
++export default Footer;

@@ -8,7 +8,7 @@
 
 .footer-content {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
     gap: 3rem;
     max-width: 1200px;
     margin: 0 auto 4rem;
@@ -114,13 +114,14 @@
 .subscribe-form {
     display: flex;
     gap: 0.5rem;
+    height: 45px;
 }
 
 .subscribe-form input {
     flex: 1;
     background-color: #2a2520;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 0.8rem 1rem;
+    padding: 0 1rem;
     border-radius: 6px;
     color: #fff;
     font-size: 0.85rem;
@@ -146,6 +147,9 @@
     font-size: 0.85rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-subscribe:hover {
@@ -159,8 +163,8 @@
 }
 
 .footer-bottom p {
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
     margin: 0;
 }
 
@@ -195,7 +199,7 @@
         flex-direction: column;
     }
 
-    .btn-subscribe {
+    .subscribe-form .btn-subscribe {
         padding: 0.8rem;
     }
 }

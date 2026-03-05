@@ -6,7 +6,8 @@
     height: 100vh;
     min-height: 600px;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
 }
 
@@ -22,18 +23,19 @@
 .wedding-hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom,
-            rgba(10, 10, 10, 0.3) 0%,
-            rgba(10, 10, 10, 0.6) 50%,
-            rgba(10, 10, 10, 0.95) 100%);
+    background: linear-gradient(180deg, rgba(5, 12, 8, 0.45) 0%, rgba(5, 8, 5, 0.8) 100%);
     z-index: 1;
 }
 
 .wedding-hero-content {
     position: relative;
     z-index: 2;
-    padding: 0 5rem 5rem;
+    padding: 0 5rem;
     max-width: 700px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .wedding-hero-tag {
@@ -48,10 +50,11 @@
 }
 
 .wedding-hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.8rem;
-    font-weight: 700;
-    line-height: 1.1;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.15;
     color: #fff;
     margin: 0 0 1.2rem;
 }
@@ -65,27 +68,31 @@
 }
 
 .wedding-hero-desc {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.95rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    font-style: italic;
     color: rgba(255, 255, 255, 0.6);
     line-height: 1.7;
     margin-bottom: 1.5rem;
-    max-width: 500px;
+    max-width: 550px;
 }
 
 .wedding-hero-btns {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 /* ===== BUTTONS ===== */
 .btn-wedding {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     padding: 0.75rem 2rem;
     border-radius: 50px;
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-size: 0.95rem;
+    font-weight: 300;
+    font-style: italic;
     cursor: pointer;
     transition: all 0.3s ease;
     letter-spacing: 0.5px;
@@ -116,14 +123,14 @@
 /* ===== DESTINATION WEDDINGS ===== */
 .destination-section {
     padding: 6rem 5rem;
-    background: #0a0a0a;
+    background: #1a1612;
 }
 
 .destination-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    gap: 3rem;
+    align-items: center;
+    gap: 2rem;
     margin-bottom: 3.5rem;
 }
 
@@ -144,16 +151,16 @@
 
 .section-heading {
     font-family: 'Playfair Display', serif;
-    font-size: 2.6rem;
-    font-weight: 700;
+    font-size: 1.4rem;
+    font-weight: 400;
     color: #fff;
-    line-height: 1.15;
+    line-height: 1.1;
     margin: 0;
+    max-width: 300px;
 }
 
 .destination-header-right {
     flex: 0.8;
-    padding-top: 1.5rem;
 }
 
 .destination-header-right p {
@@ -168,13 +175,14 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
+    align-items: start;
 }
 
 .dest-card {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(207, 163, 84, 0.1);
     border-radius: 16px;
-    padding: 2.2rem 1.8rem;
+    padding: 2rem 1.8rem;
     transition: all 0.4s ease;
 }
 
@@ -209,73 +217,57 @@
     font-family: 'Outfit', sans-serif;
     color: rgba(255, 255, 255, 0.45);
     font-size: 0.85rem;
-    line-height: 1.7;
+    line-height: 1.85;
     margin: 0;
 }
 
 /* ===== EVENTS SECTION ===== */
 .events-section {
     padding: 5rem 5rem;
-    background: #0d0d0d;
+    background: #12100e;
 }
 
 .events-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 5rem;
     align-items: center;
 }
 
-.events-images {
+.events-grid-images {
     display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0.5rem;
+    width: 100%;
 }
 
-.events-img-large {
-    border-radius: 16px;
-    overflow: hidden;
-    aspect-ratio: 3/4;
-}
-
-.events-img-large img {
+.events-grid-images img {
     width: 100%;
     height: 100%;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
 }
 
-.events-img-large:hover img {
-    transform: scale(1.05);
-}
-
-.events-img-small {
-    border-radius: 16px;
-    overflow: hidden;
-    aspect-ratio: 1/1;
-    align-self: center;
-}
-
-.events-img-small img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.events-img-small:hover img {
+.events-grid-images img:hover {
     transform: scale(1.05);
 }
 
 .events-content {
-    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .events-list {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .event-item {
@@ -285,11 +277,12 @@
 }
 
 .event-dot {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background: #cfa354;
     margin-top: 6px;
+    /* Top align with text cap height */
     flex-shrink: 0;
 }
 
@@ -311,15 +304,15 @@
 
 /* ===== GALLERY SECTION ===== */
 .gallery-section {
-    padding: 5rem 5rem;
-    background: #0a0a0a;
+    padding: 2.5rem 5rem;
+    background: #1a1612;
     text-align: center;
 }
 
 .gallery-title {
     font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: 2.2rem;
+    font-weight: 400;
     color: #fff;
     margin: 0 0 0.5rem;
 }
@@ -328,19 +321,21 @@
     font-family: 'Outfit', sans-serif;
     color: rgba(255, 255, 255, 0.45);
     font-size: 0.9rem;
-    margin: 0 0 3rem;
+    margin: 0 0 1.5rem;
 }
 
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .gallery-item {
     border-radius: 12px;
     overflow: hidden;
-    aspect-ratio: 1/1;
+    aspect-ratio: 4/3;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(207, 163, 84, 0.08);
     padding: 0.6rem;
@@ -361,7 +356,7 @@
 /* ===== TESTIMONIALS ===== */
 .testimonials-section {
     padding: 4rem 5rem;
-    background: #0a0a0a;
+    background: #12100e;
 }
 
 .testimonials-grid {
@@ -375,26 +370,30 @@
     border: 1px solid rgba(207, 163, 84, 0.12);
     border-radius: 16px;
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .testimonial-text {
     font-family: 'Outfit', sans-serif;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
-    line-height: 1.8;
-    margin: 0 0 1.5rem;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0 0 2rem;
     font-style: italic;
+    flex-grow: 1;
 }
 
 .testimonial-author {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 1rem;
+    margin-top: auto;
 }
 
 .author-avatar {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     background: linear-gradient(135deg, #cfa354, #e8c47a);
     color: #0a0a0a;
@@ -402,27 +401,31 @@
     align-items: center;
     justify-content: center;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-family: 'Outfit', sans-serif;
+    line-height: 1;
+    padding-bottom: 2px;
+    /* Slight optical adjustment for center alignment */
 }
 
 .testimonial-author strong {
     font-family: 'Outfit', sans-serif;
     color: #fff;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     display: block;
+    margin-bottom: 0.2rem;
 }
 
 .testimonial-author span {
     font-family: 'Outfit', sans-serif;
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8rem;
 }
 
 /* ===== CTA SECTION ===== */
 .wedding-cta {
-    padding: 5rem;
-    background: #0a0a0a;
+    padding: 2rem 5rem;
+    background: #1a1612;
 }
 
 .wedding-cta-inner {
@@ -430,24 +433,26 @@
     border: 1px solid rgba(207, 163, 84, 0.2);
     border-radius: 24px;
     text-align: center;
-    padding: 4rem 3rem;
+    padding: 1.5rem 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .wedding-cta-inner h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 2.4rem;
-    font-weight: 700;
+    font-size: 1.8rem;
+    font-weight: 400;
     color: #fff;
-    margin: 0 0 1rem;
+    margin: 0 0 0.5rem;
 }
 
 .wedding-cta-inner p {
     font-family: 'Outfit', sans-serif;
     color: rgba(255, 255, 255, 0.5);
-    font-size: 0.95rem;
-    line-height: 1.7;
+    font-size: 0.85rem;
+    line-height: 1.5;
     max-width: 500px;
-    margin: 0 auto 2rem;
+    margin: 0 auto 1.5rem;
 }
 
 .btn-wedding-cta {
@@ -546,18 +551,31 @@
 @media (max-width: 768px) {
     .wedding-hero-content {
         padding: 0 1.5rem 3rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .wedding-hero-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+    }
+
+    .wedding-hero-btns {
+        flex-direction: column;
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    .wedding-hero-btns .btn-wedding {
+        width: 100%;
     }
 
     .destination-section,
     .events-section,
     .gallery-section,
     .testimonials-section,
-    .wedding-cta,
-    .wedding-footer {
+    .wedding-cta {
         padding-left: 1.5rem;
         padding-right: 1.5rem;
     }
@@ -579,11 +597,6 @@
         grid-template-columns: 1fr;
     }
 
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
     .wedding-cta-inner {
         padding: 3rem 1.5rem;
     }
@@ -599,21 +612,17 @@
 
 @media (max-width: 480px) {
     .wedding-hero-title {
-        font-size: 2.1rem;
+        font-size: 1.8rem;
     }
 
     .wedding-hero-content {
         padding: 0 1rem 2rem;
     }
 
-    .events-images {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .events-img-small {
-        display: none;
-        /* Hide small image on very small screens to save space */
+    .events-grid-images {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 0.5rem;
     }
 
     .gallery-grid {

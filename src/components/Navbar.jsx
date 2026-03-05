@@ -1,9 +1,26 @@
-import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { NavLink, useLocation } from 'react-router-dom'
 import './Navbar.css'
 
 function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [isScrolled, setIsScrolled] = useState(false)
+    const location = useLocation()
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setIsScrolled(true)
+            } else {
+                setIsScrolled(false)
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
+
+    const navbarClass = `navbar ${isScrolled ? 'scrolled' : 'top'}`
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen)
@@ -14,7 +31,7 @@ function Navbar() {
     }
 
     return (
-        <nav className="navbar">
+        <nav className={navbarClass}>
             <div className="navbar-brand">
                 <span className="brand-icon">👑</span>
                 <span className="brand-text">BSA TRIBE</span>
@@ -45,6 +62,12 @@ function Navbar() {
                 <li>
                     <NavLink to="/programs" onClick={closeMenu} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
                         Programs
+                    </NavLink>
+                </li>
+
+                <li>
+                    <NavLink to="/contact" onClick={closeMenu} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+                        Contact Us
                     </NavLink>
                 </li>
             </ul>

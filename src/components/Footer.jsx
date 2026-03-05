@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Globe, Instagram } from 'lucide-react';
 import './Footer.css';
 
 function Footer() {
@@ -14,8 +15,12 @@ function Footer() {
                         Preserving and sharing the sacred traditions of the East for the conscious leaders of tomorrow.
                     </p>
                     <div className="footer-social">
-                        <a href="#" aria-label="Website" className="social-icon">🌎</a>
-                        <a href="#" aria-label="Email" className="social-icon">✉️</a>
+                        <a href="#" aria-label="Website" className="social-icon">
+                            <Globe size={18} />
+                        </a>
+                        <a href="#" aria-label="Instagram" className="social-icon">
+                            <Instagram size={18} />
+                        </a>
                     </div>
                 </div>
 
@@ -32,7 +37,7 @@ function Footer() {
                 <div className="footer-links-group">
                     <h4>Support</h4>
                     <ul>
-                        <li><Link to="#">Contact Us</Link></li>
+                        <li><Link to="/contact">Contact Us</Link></li>
                         <li><Link to="#">FAQ</Link></li>
                         <li><Link to="#">Privacy Policy</Link></li>
                         <li><Link to="#">Terms of Service</Link></li>
