@@ -27,6 +27,9 @@ a {
 
 body {
   margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
   min-width: 320px;
   min-height: 100vh;
   background-color: #0a0a0a;
@@ -46,20 +49,19 @@ img {
   max-width: 100%;
 }
 
-/* Scrollbar Styling */
+/* Scrollbar Styling - Hidden */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 0px;
+  display: none;
 }
 
-::-webkit-scrollbar-track {
-  background: #0a0a0a;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(207, 163, 84, 0.3);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(207, 163, 84, 0.5);
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background-color: #0a0a0a;
 }

@@ -31,10 +31,9 @@ function Navbar() {
     }
 
     return (
-        <nav className={navbarClass}>
-            <div className="navbar-brand">
-                <span className="brand-icon">👑</span>
-                <span className="brand-text">BSA TRIBE</span>
+        <nav className={navbarClass} style={{height: '80px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 2rem'}}>
+            <div className="navbar-brand" style={{fontFamily: 'var(--font-headline)', color: 'var(--primary)', fontSize: '1.5rem', fontWeight: 700, letterSpacing: '-0.05em'}}>
+                BSA Tribe
             </div>
 
             <div className={`hamburger ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu}>
@@ -55,13 +54,13 @@ function Navbar() {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/products" onClick={closeMenu} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-                        Products
+                    <NavLink to="/programs" onClick={closeMenu} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+                        Programs
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/programs" onClick={closeMenu} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-                        Programs
+                    <NavLink to="/products" onClick={closeMenu} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+                        Products
                     </NavLink>
                 </li>
 
@@ -71,6 +70,13 @@ function Navbar() {
                     </NavLink>
                 </li>
             </ul>
+
+
+            <div className="navbar-actions" style={{display: 'flex', alignItems: 'center', gap: '1.5rem'}}>
+                <button className="social-icon" style={{background: 'none', border: 'none', color: 'var(--on-surface)', cursor: 'pointer'}}>
+                    <span className="material-symbols-outlined">account_circle</span>
+                </button>
+            </div>
         </nav>
     )
 }

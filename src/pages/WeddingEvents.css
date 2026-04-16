@@ -1,635 +1,653 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Manrope:wght@300;400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+:root {
+    --primary: #e9c349;
+    --primary-container: #c5a12a;
+    --on-primary: #3c2f00;
+    --surface: #131313;
+    --surface-dim: #131313;
+    --surface-bright: #393939;
+    --surface-container-lowest: #0e0e0e;
+    --surface-container-low: #1c1b1b;
+    --surface-container: #201f1f;
+    --surface-container-high: #2a2a2a;
+    --surface-container-highest: #353534;
+    --on-surface: #e5e2e1;
+    --on-surface-variant: #d1c5b4;
+    --outline: #9a8f80;
+    --outline-variant: #4e4639;
+    --error: #ffb4ab;
+    --font-headline: 'Noto Serif', serif;
+    --font-body: 'Manrope', sans-serif;
+}
+
+.wedding-page-v2 {
+    background-color: var(--surface);
+    color: var(--on-surface);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    selection-background: var(--primary);
+    selection-color: var(--on-primary);
+}
+
+::selection {
+    background: var(--primary);
+    color: var(--on-primary);
+}
+
+/* Typography Utilities */
+.serif-tight {
+    font-family: var(--font-headline);
+    letter-spacing: -0.02em;
+}
+
+.manrope-caps {
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+}
+
+.satin-gradient {
+    background: linear-gradient(135deg, #e9c349 0%, #c5a12a 100%);
+}
+
+.glass-panel {
+    background: rgba(19, 19, 19, 0.6);
+    backdrop-filter: blur(20px);
+}
+
+.rounded-full {
+    border-radius: 9999px;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
 
 /* ===== HERO SECTION ===== */
-.wedding-hero {
+.heritage-hero {
     position: relative;
-    height: 100vh;
-    min-height: 600px;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     overflow: hidden;
+    outline: none;
+    background-color: #000;
 }
 
-.wedding-hero-img {
+.heritage-hero-img {
+    position: absolute;
+    inset: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    max-width: none;
+    object-fit: cover;
+    object-position: center top;
+    opacity: 0;
+    z-index: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.hero-slide.active .heritage-hero-img {
+    opacity: 1;
+}
+
+.slides-container {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center top;
 }
 
-.wedding-hero-overlay {
+.hero-slide {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(5, 12, 8, 0.45) 0%, rgba(5, 8, 5, 0.8) 100%);
-    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s ease;
+    background-color: #000;
+    overflow: hidden;
 }
 
-.wedding-hero-content {
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.heritage-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, 
+        rgba(10, 10, 10, 0.1) 0%, 
+        rgba(10, 10, 10, 0.3) 50%, 
+        rgba(10, 10, 10, 0.95) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.heritage-hero-content {
     position: relative;
     z-index: 2;
-    padding: 0 5rem;
-    max-width: 700px;
+    max-width: 1000px;
+    padding: 10vh 2rem;
     text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.wedding-hero-tag {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 4px;
-    color: #cfa354;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 1rem;
+.hero-slide.active .heritage-hero-content {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.wedding-hero-title {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 2.2rem;
-    font-weight: 300;
-    font-style: italic;
-    line-height: 1.15;
-    color: #fff;
-    margin: 0 0 1.2rem;
-}
-
-.hero-highlight {
-    font-style: italic;
-    background: linear-gradient(135deg, #cfa354, #e8c47a);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.wedding-hero-desc {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1.1rem;
-    font-weight: 300;
-    font-style: italic;
-    color: rgba(255, 255, 255, 0.6);
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-    max-width: 550px;
-}
-
-.wedding-hero-btns {
+.hero-buttons {
     display: flex;
     gap: 1rem;
-    flex-wrap: wrap;
     justify-content: center;
 }
 
-/* ===== BUTTONS ===== */
-.btn-wedding {
-    font-family: 'Times New Roman', Times, serif;
-    padding: 0.75rem 2rem;
-    border-radius: 50px;
-    font-size: 0.95rem;
-    font-weight: 300;
+.heritage-hero-label {
+    color: #E9C349;
+    letter-spacing: 0.3em;
+    font-weight: 800;
+    font-size: 0.65rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.heritage-hero-title {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: #FFFFFF;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.6), 0 2px 10px rgba(0,0,0,0.4);
+    text-transform: none;
+    letter-spacing: -0.01em;
+    max-width: 900px;
+}
+
+.hero-title-accent {
+    display: block;
     font-style: italic;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    letter-spacing: 0.5px;
-    border: none;
+    color: #E9C349;
+    font-size: 0.9em;
+    margin-top: 0.2rem;
 }
 
-.btn-wedding-primary {
-    background: linear-gradient(135deg, #cfa354, #e8c47a);
-    color: #0a0a0a;
+.special-hero-content {
+    max-width: 1100px;
 }
 
-.btn-wedding-primary:hover {
-    box-shadow: 0 6px 28px rgba(207, 163, 84, 0.4);
-    transform: translateY(-2px);
+.special-hero-content .heritage-hero-label {
+    font-size: 1rem;
+    letter-spacing: 0.4em;
+    margin-bottom: 2rem;
 }
 
-.btn-wedding-outline {
-    background: transparent;
-    color: #cfa354;
-    border: 1.5px solid rgba(207, 163, 84, 0.5);
-}
-
-.btn-wedding-outline:hover {
-    background: rgba(207, 163, 84, 0.1);
-    border-color: #cfa354;
-}
-
-/* ===== DESTINATION WEDDINGS ===== */
-.destination-section {
-    padding: 6rem 5rem;
-    background: #1a1612;
-}
-
-.destination-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
+.special-hero-content .heritage-hero-desc {
+    font-size: 1.1rem;
+    max-width: 600px;
     margin-bottom: 3.5rem;
 }
 
-.destination-header-left {
-    flex: 1;
-}
-
-.section-label {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 4px;
-    color: #cfa354;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 0.8rem;
-}
-
-.section-heading {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
+.heritage-hero-desc {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 450px;
+    margin: 0 auto 2rem;
     font-weight: 400;
-    color: #fff;
-    line-height: 1.1;
-    margin: 0;
-    max-width: 300px;
-}
-
-.destination-header-right {
-    flex: 0.8;
-}
-
-.destination-header-right p {
-    font-family: 'Outfit', sans-serif;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.9rem;
-    line-height: 1.7;
-    margin: 0;
-}
-
-.destination-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    align-items: start;
-}
-
-.dest-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(207, 163, 84, 0.1);
-    border-radius: 16px;
-    padding: 2rem 1.8rem;
-    transition: all 0.4s ease;
-}
-
-.dest-card:hover {
-    background: rgba(207, 163, 84, 0.06);
-    border-color: rgba(207, 163, 84, 0.25);
-    transform: translateY(-4px);
-}
-
-.dest-card-icon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    display: inline-block;
-    background: rgba(207, 163, 84, 0.1);
-    width: 55px;
-    height: 55px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.dest-card h3 {
-    font-family: 'Outfit', sans-serif;
-    color: #fff;
-    font-size: 1.15rem;
-    font-weight: 600;
-    margin: 0 0 0.6rem;
-}
-
-.dest-card p {
-    font-family: 'Outfit', sans-serif;
-    color: rgba(255, 255, 255, 0.45);
-    font-size: 0.85rem;
-    line-height: 1.85;
-    margin: 0;
-}
-
-/* ===== EVENTS SECTION ===== */
-.events-section {
-    padding: 5rem 5rem;
-    background: #12100e;
-}
-
-.events-grid {
-    display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-}
-
-.events-grid-images {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 0.5rem;
-    width: 100%;
-}
-
-.events-grid-images img {
-    width: 100%;
-    height: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-}
-
-.events-grid-images img:hover {
-    transform: scale(1.05);
-}
-
-.events-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-.events-list {
-    margin-top: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.event-item {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-}
-
-.event-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #cfa354;
-    margin-top: 6px;
-    /* Top align with text cap height */
-    flex-shrink: 0;
-}
-
-.event-item h4 {
-    font-family: 'Outfit', sans-serif;
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 600;
-    margin: 0 0 0.3rem;
-}
-
-.event-item p {
-    font-family: 'Outfit', sans-serif;
-    color: rgba(255, 255, 255, 0.45);
-    font-size: 0.85rem;
     line-height: 1.6;
-    margin: 0;
+    letter-spacing: 0.05em;
 }
 
-/* ===== GALLERY SECTION ===== */
-.gallery-section {
-    padding: 2.5rem 5rem;
-    background: #1a1612;
-    text-align: center;
-}
-
-.gallery-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
-    font-weight: 400;
-    color: #fff;
-    margin: 0 0 0.5rem;
-}
-
-.gallery-subtitle {
-    font-family: 'Outfit', sans-serif;
-    color: rgba(255, 255, 255, 0.45);
-    font-size: 0.9rem;
-    margin: 0 0 1.5rem;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.gallery-item {
-    border-radius: 12px;
-    overflow: hidden;
-    aspect-ratio: 4/3;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(207, 163, 84, 0.08);
-    padding: 0.6rem;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-    transition: transform 0.5s ease;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.08);
-}
-
-/* ===== TESTIMONIALS ===== */
-.testimonials-section {
-    padding: 4rem 5rem;
-    background: #12100e;
-}
-
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-}
-
-.testimonial-card {
-    background: linear-gradient(135deg, rgba(207, 163, 84, 0.08), rgba(207, 163, 84, 0.03));
-    border: 1px solid rgba(207, 163, 84, 0.12);
-    border-radius: 16px;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-}
-
-.testimonial-text {
-    font-family: 'Outfit', sans-serif;
-    color: rgba(255, 255, 255, 0.75);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin: 0 0 2rem;
-    font-style: italic;
-    flex-grow: 1;
-}
-
-.testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-top: auto;
-}
-
-.author-avatar {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #cfa354, #e8c47a);
-    color: #0a0a0a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 1.1rem;
-    font-family: 'Outfit', sans-serif;
-    line-height: 1;
-    padding-bottom: 2px;
-    /* Slight optical adjustment for center alignment */
-}
-
-.testimonial-author strong {
-    font-family: 'Outfit', sans-serif;
-    color: #fff;
-    font-size: 0.95rem;
-    display: block;
-    margin-bottom: 0.2rem;
-}
-
-.testimonial-author span {
-    font-family: 'Outfit', sans-serif;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.8rem;
-}
-
-/* ===== CTA SECTION ===== */
-.wedding-cta {
-    padding: 2rem 5rem;
-    background: #1a1612;
-}
-
-.wedding-cta-inner {
-    background: linear-gradient(135deg, #1a1208, #2a1a0a);
-    border: 1px solid rgba(207, 163, 84, 0.2);
-    border-radius: 24px;
-    text-align: center;
-    padding: 1.5rem 1.5rem;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.wedding-cta-inner h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    font-weight: 400;
-    color: #fff;
-    margin: 0 0 0.5rem;
-}
-
-.wedding-cta-inner p {
-    font-family: 'Outfit', sans-serif;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.85rem;
-    line-height: 1.5;
-    max-width: 500px;
-    margin: 0 auto 1.5rem;
-}
-
-.btn-wedding-cta {
-    background: linear-gradient(135deg, #cfa354, #e8c47a);
-    color: #0a0a0a;
-    padding: 0.85rem 2.5rem;
-    font-size: 0.9rem;
-    font-weight: 700;
-    border-radius: 50px;
+.btn-satin-gold {
+    background-color: #E9C14F;
+    color: #1a1a1a;
+    padding: 1rem 3rem;
     border: none;
+    font-weight: 800;
+    font-size: 0.85rem;
+    border-radius: 9999px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 20px rgba(233, 193, 79, 0.3);
     cursor: pointer;
-    font-family: 'Outfit', sans-serif;
-    transition: all 0.3s ease;
 }
 
-.btn-wedding-cta:hover {
-    box-shadow: 0 8px 32px rgba(207, 163, 84, 0.45);
+.btn-satin-gold:hover {
     transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(233, 193, 79, 0.4);
 }
 
-/* ===== FOOTER ===== */
-.wedding-footer {
-    background: #060606;
-    padding: 4rem 5rem 2rem;
-    border-top: 1px solid rgba(207, 163, 84, 0.08);
+.btn-glass-outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+    padding: 0.9rem 2.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-.footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 3rem;
+.btn-glass-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #fff;
+}
+
+/* Removed duplicate classes to ensure consistent styling */
+
+.btn-outline-heritage {
+    padding: 1.2rem 3rem;
+    border-radius: 9999px;
+    background: transparent;
+    border: 1px solid rgba(154, 143, 128, 0.3);
+    color: var(--on-surface);
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-outline-heritage:hover {
+    background: var(--surface-container-high);
+}
+
+/* ===== INVITATIONS GRID (BENTO) ===== */
+.invitations-section {
+    padding: 4rem 2rem;
+    background-color: var(--surface-container-low);
+}
+
+.invitations-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.invitations-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
     margin-bottom: 3rem;
 }
 
-.footer-col h4 {
-    font-family: 'Outfit', sans-serif;
-    color: #cfa354;
-    font-size: 0.95rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    margin: 0 0 1rem;
+.section-label-v2 {
+    color: var(--on-surface-variant);
+    font-size: 1rem;
+    margin-top: 1rem;
+    display: block;
 }
 
-.footer-col p {
-    font-family: 'Outfit', sans-serif;
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 0.85rem;
-    line-height: 1.7;
-    margin: 0;
+.section-heading-v2 {
+    font-size: 2.25rem !important; /* Reduced to 36px */
+    font-weight: 700;
 }
 
-.footer-col ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.featured-access-tag {
+    background: var(--surface-container);
+    color: var(--primary);
+    padding: 0.6rem 1.5rem;
+    border-radius: 9999px;
+    font-size: 0.7rem;
 }
 
-.footer-col ul li {
-    font-family: 'Outfit', sans-serif;
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 0.85rem;
-    margin-bottom: 0.5rem;
-    cursor: pointer;
-    transition: color 0.3s ease;
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
 }
 
-.footer-col ul li:hover {
-    color: #cfa354;
+.bento-card {
+    position: relative;
+    border-radius: 4rem; /* Luxury roundedness */
+    overflow: hidden;
+    background-color: var(--surface-container-high);
+    transition: all 0.5s ease;
 }
 
-.footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-    padding-top: 1.5rem;
-    text-align: center;
+.bento-card-1 { grid-column: span 8; min-height: 480px; }
+.bento-card-2 { grid-column: span 4; display: flex; flex-direction: column; }
+.bento-card-3 { grid-column: span 4; min-height: 350px; }
+.bento-card-4 { grid-column: span 8; min-height: 350px; }
+
+.bento-card-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+    transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.footer-bottom p {
-    font-family: 'Outfit', sans-serif;
-    color: rgba(255, 255, 255, 0.25);
+.bento-card:hover .bento-card-img {
+    transform: scale(1.1);
+}
+
+.bento-card-content {
+    position: relative;
+    z-index: 1;
+    padding: 3.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-tag {
+    background: rgba(233, 195, 73, 0.15);
+    border: 1px solid rgba(233, 195, 73, 0.3);
+    color: var(--primary);
+    padding: 0.4rem 1.2rem;
+    border-radius: 9999px;
+    font-size: 0.65rem;
+    backdrop-filter: blur(8px);
+}
+
+.bento-card h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.bento-card p {
+    color: var(--on-surface-variant);
+    max-width: 400px;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.btn-text-icon {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary);
+    background: none;
+    border: none;
     font-size: 0.75rem;
-    margin: 0;
+    cursor: pointer;
+    transition: gap 0.3s ease;
+}
+
+.bento-card:hover .btn-text-icon {
+    gap: 1rem;
+}
+
+/* Specific for Card 2 */
+.bento-card-2 .card-img-top {
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+}
+
+.bento-card-2 .card-img-top img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+.bento-card-2 .bento-card-content {
+    padding: 2.5rem;
+    flex-grow: 1;
+}
+
+.btn-card-outline {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(154, 143, 128, 0.2);
+    background: transparent;
+    color: var(--on-surface-variant);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-card-outline:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* Card 3 Date styles */
+.date-large {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+/* Card 4 row of tags */
+.card-tags-row {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.mini-tag {
+    padding: 0.6rem 1.5rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(154, 143, 128, 0.2);
+    font-size: 0.65rem;
+}
+
+/* ===== SACRED STANDARDS SECTION ===== */
+.standards-section {
+    padding: 8rem 2rem;
+    background-color: var(--surface);
+}
+
+.standards-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.standards-visual {
+    position: relative;
+}
+
+.circle-img-frame {
+    aspect-ratio: 4/5;
+    border-radius: 9999px;
+    overflow: hidden;
+    padding: 1rem;
+    border: 1px solid rgba(154, 143, 128, 0.1);
+    background: var(--surface-container);
+}
+
+.circle-img-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 9999px;
+}
+
+.standards-quote-card {
+    position: absolute;
+    bottom: -2rem;
+    right: -2rem;
+    padding: 2.5rem;
+    border-radius: 9999px;
+    max-width: 320px;
+    border: 1px solid rgba(154, 143, 128, 0.1);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+}
+
+.standards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.standards-item {
+    display: flex;
+    gap: 2rem;
+}
+
+.standards-icon-box {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background: rgba(233, 195, 73, 0.1);
+    border: 1px solid rgba(233, 195, 73, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.standards-icon-box span {
+    color: var(--primary);
+    font-size: 1.5rem;
+}
+
+.standards-item h4 {
+    color: var(--on-surface);
+    margin-bottom: 0.5rem;
+}
+
+.standards-item p {
+    color: var(--on-surface-variant);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ===== INVITE WORLD CTA ===== */
+.invite-cta-section {
+    padding: 10rem 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.glow-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: rgba(233, 195, 73, 0.03);
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: 0;
+}
+
+.invite-cta-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.accent-line {
+    width: 80px;
+    height: 1px;
+    background: var(--primary);
+    margin: 0 auto 3rem;
+}
+
+.invite-cta-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.invite-cta-section p {
+    color: var(--on-surface-variant);
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 3.5rem;
+}
+
+.btn-outline-large {
+    padding: 1.5rem 4rem;
+    border-radius: 9999px;
+    border: 1.5px solid var(--primary);
+    background: transparent;
+    color: var(--primary);
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-large:hover {
+    background: var(--primary);
+    color: var(--on-primary);
 }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
-    .destination-cards {
-        grid-template-columns: repeat(2, 1fr);
+    .bento-card-1, .bento-card-2, .bento-card-3, .bento-card-4 {
+        grid-column: span 12;
     }
-
-    .events-grid {
+    .standards-container {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        gap: 8rem;
     }
+    .standards-visual {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+/* ===== BOTTOM NAV BAR (MOBILE) ===== */
+.mobile-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 96px;
+    background: rgba(19, 19, 19, 0.6);
+    backdrop-filter: blur(32px);
+    border-top: 1px solid rgba(154, 143, 128, 0.15);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 1rem 1.5rem;
+    z-index: 100;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+    display: none; /* Default hidden */
+}
+
+.mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgba(229, 226, 225, 0.6);
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.mobile-nav-item.active {
+    background: linear-gradient(135deg, #e9c349 0%, #c5a12a 100%);
+    color: #131313;
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    transform: scale(1.05);
+}
+
+.md-hidden {
+    display: none;
 }
 
 @media (max-width: 768px) {
-    .wedding-hero-content {
-        padding: 0 1.5rem 3rem;
-        text-align: center;
+    .mobile-bottom-nav {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .wedding-hero-title {
-        font-size: 2.2rem;
-    }
-
-    .wedding-hero-btns {
-        flex-direction: column;
-        width: 100%;
-        padding: 0 1rem;
-    }
-
-    .wedding-hero-btns .btn-wedding {
-        width: 100%;
-    }
-
-    .destination-section,
-    .events-section,
-    .gallery-section,
-    .testimonials-section,
-    .wedding-cta {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-    }
-
-    .destination-header {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .destination-cards {
-        grid-template-columns: 1fr;
-    }
-
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .wedding-cta-inner {
-        padding: 3rem 1.5rem;
-    }
-
-    .wedding-cta-inner h2 {
-        font-size: 1.8rem;
-    }
-
-    .section-heading {
-        font-size: 2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .wedding-hero-title {
-        font-size: 1.8rem;
-    }
-
-    .wedding-hero-content {
-        padding: 0 1rem 2rem;
-    }
-
-    .events-grid-images {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(4, 1fr);
-        gap: 0.5rem;
-    }
-
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .wedding-cta-inner h2 {
-        font-size: 1.5rem;
     }
 }
